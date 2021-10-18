@@ -1,0 +1,5 @@
+package gofunc
+
+func main() {
+
+}
