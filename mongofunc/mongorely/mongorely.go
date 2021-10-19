@@ -26,3 +26,7 @@ func Connect(ctx context.Context, cfg DbConfig) (*mongo.Client, error) {
 	db = client.Database(cfg.DbName)
 	return client, err
 }
+
+func RetrieveClient() *mongo.Client {
+	return client
+}

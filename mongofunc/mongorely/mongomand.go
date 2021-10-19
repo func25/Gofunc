@@ -4,12 +4,22 @@ import (
 	"context"
 	"errors"
 
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 var (
 	ErrCollNotFound = errors.New("cannot find the collection of model")
 )
+
+func Count(ctx context.Context, collName string, filter interface{}, opts ...*options.CountOptions) (int64, error) {
+	col := db.Collection(collName)
+	if col == nil {
+		return -1, ErrCollNotFound
+	}
+
+	return col.CountDocuments(ctx, filter, opts...)
+}
 
 func Create(ctx context.Context, model MongoModel, opts ...*options.InsertOneOptions) error {
 	col := db.Collection(model.GetMongoCollName())
@@ -39,4 +49,13 @@ func Find(ctx context.Context, collName string, models interface{}, filter inter
 	}
 
 	return cur.All(ctx, models)
+}
+
+//Flush, **** DONT USE
+func Flush(ctx context.Context, collName string) error {
+	col := db.Collection(collName)
+
+	_, err := col.DeleteMany(ctx, bson.D{})
+
+	return err
 }
