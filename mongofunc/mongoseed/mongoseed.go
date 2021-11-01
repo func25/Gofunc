@@ -2,7 +2,8 @@ package mongoseed
 
 import (
 	"context"
-	"gofunc/mongofunc/mongorely"
+
+	"github.com/func25/gofunc/mongofunc/mongorely"
 )
 
 type Hero struct {

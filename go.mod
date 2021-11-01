@@ -1,10 +1,11 @@
-module gofunc
+module github.com/func25/gofunc
 
 go 1.17
 
 require go.mongodb.org/mongo-driver v1.7.3
 
 require (
+	github.com/elastic/go-elasticsearch/v8 v8.0.0-20211021114623-d823a44f1eb7
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect

@@ -3,11 +3,12 @@ package mongoquery_test
 import (
 	"context"
 	"fmt"
-	"gofunc/mongofunc/mongoquery"
-	"gofunc/mongofunc/mongorely"
-	"gofunc/mongofunc/mongoseed"
 	"log"
 	"testing"
+
+	"github.com/func25/gofunc/mongofunc/mongoquery"
+	"github.com/func25/gofunc/mongofunc/mongorely"
+	"github.com/func25/gofunc/mongofunc/mongoseed"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

@@ -3,10 +3,11 @@ package mongofunctest
 import (
 	"context"
 	"errors"
-	"gofunc/mongofunc/mongoquery"
-	"gofunc/mongofunc/mongorely"
-	"gofunc/mongofunc/mongoseed"
 	"testing"
+
+	"github.com/func25/gofunc/mongofunc/mongoquery"
+	"github.com/func25/gofunc/mongofunc/mongorely"
+	"github.com/func25/gofunc/mongofunc/mongoseed"
 
 	"go.mongodb.org/mongo-driver/bson"
 )
