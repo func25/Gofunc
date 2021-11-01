@@ -3,7 +3,7 @@ package mongoquery
 import "go.mongodb.org/mongo-driver/bson"
 
 func ExistOrDefault(fieldName string, exist bool, value interface{}) bson.E {
-	return MOr(Equal(fieldName, value), Exist(fieldName, exist))
+	return Or(Equal(fieldName, value), Exist(fieldName, exist))
 }
 
 func Exist(fieldName string, exist bool) bson.E {
