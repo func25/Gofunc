@@ -2,44 +2,44 @@ package mongoquery
 
 import "go.mongodb.org/mongo-driver/bson"
 
-func MIn(fieldName string, value ...interface{}) bson.M {
-	return bson.M{fieldName: bson.M{"$in": value}}
+func In(fieldName string, value ...interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$in": value}}
 }
 
-func MNotIn(fieldName string, value ...interface{}) bson.M {
-	return bson.M{fieldName: bson.M{"$nin": value}}
+func NotIn(fieldName string, value ...interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$nin": value}}
 }
 
 // LESS OR EQUAL
-func MEqualLess(fieldName string, value interface{}) bson.M {
-	return bson.M{fieldName: bson.M{"$lte": value}}
+func EqualLess(fieldName string, value interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$lte": value}}
 }
 
-func MLess(fieldName string, value interface{}) bson.M {
-	return bson.M{fieldName: bson.M{"$lt": value}}
+func Less(fieldName string, value interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$lt": value}}
 }
 
 // GREATER OR EQUAL
-func MEqualGreaterInt(fieldName string, value int) bson.M {
-	return bson.M{fieldName: bson.M{"$gte": value}}
+func EqualGreaterInt(fieldName string, value int) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$gte": value}}
 }
 
-func MEqualGreaterInt64(fieldName string, value int64) bson.M {
-	return bson.M{fieldName: bson.M{"$gte": value}}
+func EqualGreaterInt64(fieldName string, value int64) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$gte": value}}
 }
 
-func MGreaterInt(fieldName string, value int) bson.M {
-	return bson.M{fieldName: bson.M{"$gt": value}}
+func GreaterInt(fieldName string, value int) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$gt": value}}
 }
 
-func MGreaterInt64(fieldName string, value int64) bson.M {
-	return bson.M{fieldName: bson.M{"$gt": value}}
+func GreaterInt64(fieldName string, value int64) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$gt": value}}
 }
 
-func MNotEqual(fieldName string, value interface{}) bson.M {
-	return bson.M{fieldName: bson.M{"$ne": value}}
+func NotEqual(fieldName string, value interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$ne": value}}
 }
 
-func MEqual(fieldName string, value interface{}) bson.M {
-	return bson.M{fieldName: value}
+func Equal(fieldName string, value interface{}) bson.E {
+	return bson.E{Key: fieldName, Value: value}
 }

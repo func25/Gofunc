@@ -2,10 +2,10 @@ package mongoquery
 
 import "go.mongodb.org/mongo-driver/bson"
 
-func MExistOrDefault(fieldName string, exist bool, value interface{}) bson.M {
-	return MOr(MEqual(fieldName, value), MExist(fieldName, exist))
+func ExistOrDefault(fieldName string, exist bool, value interface{}) bson.E {
+	return MOr(Equal(fieldName, value), Exist(fieldName, exist))
 }
 
-func MExist(fieldName string, exist bool) bson.M {
-	return bson.M{fieldName: bson.M{"$exist": exist}}
+func Exist(fieldName string, exist bool) bson.E {
+	return bson.E{Key: fieldName, Value: bson.M{"$exist": exist}}
 }
